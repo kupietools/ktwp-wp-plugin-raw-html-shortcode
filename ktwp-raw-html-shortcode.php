@@ -76,32 +76,3 @@ function rcb_wpautop_except_raw_blocks($content) {
 
     return $content;
 }
-
-
-
-/* original, left <p> block around raw content: 
-function my_protect_raw_blocks($content) {
-    $pattern = '/\[raw\](.*?)\[\/raw\]/is';
-
-    $raw_blocks = [];
-
-    $content = preg_replace_callback($pattern, function ($matches) use (&$raw_blocks) {
-        $key = '%%RAW_BLOCK_' . count($raw_blocks) . '%%';
-        $raw_blocks[$key] = $matches[1];
-        return $key;
-    }, $content);
-
-    $content = wpautop($content);
-
-    foreach ($raw_blocks as $key => $raw) {
-        $content = str_replace($key, do_shortcode($raw), $content);
-    }
-
-    return $content;
-}
-
-// Remove default wpautop
-remove_filter('the_content', 'wpautop');
-
-// Add our custom protected version
-add_filter('the_content', 'my_protect_raw_blocks', 9); */
