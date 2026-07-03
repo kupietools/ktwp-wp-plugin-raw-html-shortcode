@@ -26,7 +26,7 @@ function rcb_wpautop_except_raw_blocks($content) {
      * This is intentionally simple. It does not support nested [raw] blocks.
      */
     $content = preg_replace_callback(
-        '~\[raw\](.*?)\[/raw\]~is',
+        '~(?<!\[)\[raw\](?!\])(.*?)(?<!\[)\[/raw\](?!\])~is' /* was '~\[raw\](.*?)\[/raw\]~is' but this doesn't allow bypassing as [[raw]] */,
         function ($matches) use (&$raw_blocks) {
             $token = "\n\n" . '%%RAW_BLOCK_' . count($raw_blocks) . '_' . md5($matches[1]) . '%%' . "\n\n";
 
