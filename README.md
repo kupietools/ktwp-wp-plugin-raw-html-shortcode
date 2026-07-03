@@ -1,3 +1,2 @@
-# ktwp-wp-plugin-debug-log-manager
+# ktwp-wp-plugin-raw-html-shortcode
 
-WordPress plugin: ktwp-debug-log-manager
