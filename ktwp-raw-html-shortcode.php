@@ -76,3 +76,11 @@ function rcb_wpautop_except_raw_blocks($content) {
 
     return $content;
 }
+
+add_shortcode('raw', 'rcb_raw_shortcode_passthrough'); /* so you can do [[raw]] in posts to display [raw] */
+
+function rcb_raw_shortcode_passthrough($atts, $content = null) {
+    return $content ?? '';
+}
+
+
